@@ -30,6 +30,25 @@ pipeline {
             }
         }
 
+        stage('Acceptance Tests') {
+            steps {
+                echo 'Ejecutando pruebas de aceptación...'
+                bat 'mvn test'
+            }
+        }
+
+        stage('Deploy to Staging') {
+            steps {
+                echo 'Desplegando aplicación en ambiente de pruebas...'
+            }
+        }
+
+        stage('Rollback Validation') {
+            steps {
+                echo 'Validando mecanismo de rollback...'
+            }
+        }
+
     }
 
     post {
